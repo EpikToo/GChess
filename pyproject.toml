@@ -1,0 +1,54 @@
+[tool.poetry]
+name = "gchess"
+version = "0.1.0"
+description = "A chess analysis tool using Stockfish"
+authors = ["Florian Savalle <florian.savalle@viacesi.fr>"]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+django = "^5.0"
+django-ninja = "^1.0"
+django-ninja-extra = "^0.20"
+python-chess = "^1.10"
+django-cors-headers = "^4.3"
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.3"
+mypy = "^1.8"
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+
+select = [
+    "E",    # pycodestyle
+    "F",    # pyflakes
+    "I",    # isort
+    "B",    # flake8-bugbear
+    "C4",   # flake8-comprehensions
+    "UP",   # pyupgrade
+    "N",    # pep8-naming
+    "PL",   # pylint
+    "RUF",  # ruff-specific rules
+]
+
+ignore = [
+    "E501",  # line length violations
+]
+
+[tool.ruff.isort]
+combine-as-imports = true
+
+[tool.mypy]
+python_version = "3.12"
+disallow_untyped_defs = true
+check_untyped_defs = true
+ignore_missing_imports = true
+warn_return_any = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+strict_optional = true
+plugins = ["mypy_django_plugin.main"]
+
+[tool.django-stubs]
+django_settings_module = "gchess.settings"
