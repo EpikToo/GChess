@@ -42,3 +42,4 @@ testem.log
 Thumbs.db
 
 /venv
+gchess/db.sqlite3
